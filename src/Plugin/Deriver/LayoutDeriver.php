@@ -100,8 +100,8 @@ class LayoutDeriver extends AbstractPatternsDeriver {
     $pattern_definition['description'] = $layout_definition->getDescription();
     $pattern_definition['fields'] = $layout_definition->getRegions();
     $example_values = $layout_definition->get('example_values');
-    if (is_array($example_values) && is_array($example_values['base'])) {
-      foreach ($example_values['base'] as $field => $preview) {
+    if (is_array($example_values) && is_array($example_values['base']) && is_array($example_values['base']['data'])) {
+      foreach ($example_values['base']['data'] as $field => $preview) {
         $pattern_definition['fields'][$field]['preview'] = $preview;
       }
     }
